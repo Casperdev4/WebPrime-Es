@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack Primera Página Google Valencia - WebPrime</title>
+    <meta name="description" content="Pack Primera Página Google: Web 100% código con máxima visibilidad garantizada en Valencia. 174€/mes sin compromiso. Posicionamiento SEO profesional.">
+    <link rel="canonical" href="https://webprime-espana.es/offres/pack-google.html"/>
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .offer-detail-page { padding: 120px 0 60px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-gray); margin-bottom: 30px; transition: color 0.3s; }
+        .back-link:hover { color: var(--primary-orange); }
+        .back-link svg { width: 20px; height: 20px; }
+
+        /* Header - Style React/Tailwind exact */
+        .offer-header-detail { background: linear-gradient(to bottom right, #f59e0b, #f97316); border-radius: 24px; padding: 32px; margin-bottom: 24px; text-align: center; }
+        .offer-header-detail h1 { font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .offer-header-detail .description { color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 16px; }
+        .offer-header-detail .price { font-size: 48px; font-weight: 700; color: #fff; margin-bottom: 24px; }
+        .offer-header-detail .price span { font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.8); }
+        .offer-header-detail .note { background: rgba(255,255,255,0.2); border-radius: 12px; padding: 12px; font-size: 14px; color: #fff; margin-bottom: 24px; }
+        .offer-header-detail .btn-cta { background: #fff; color: #1f2937; padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 16px; display: inline-block; transition: all 0.3s; }
+        .offer-header-detail .btn-cta:hover { background: #f3f4f6; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+        /* Features - Style React/Tailwind exact */
+        .features-card { background: #1f2937; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .features-card h2 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+        .features-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .features-list li { display: flex; align-items: flex-start; gap: 12px; color: #d1d5db; }
+        .features-list li .check-icon { width: 20px; height: 20px; background: rgba(34, 197, 94, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .features-list li .check-icon svg { width: 12px; height: 12px; color: #22c55e; }
+
+        /* How it works - Style React/Tailwind exact */
+        .how-it-works { background: #1f2937; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .how-it-works h3 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+        .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .step-item { display: flex; align-items: flex-start; gap: 12px; }
+        .step-number { width: 28px; height: 28px; background: rgba(251, 191, 36, 0.3); color: #fbbf24; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+        .step-item h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 0; }
+        .step-item p { color: #9ca3af; font-size: 12px; line-height: 1.3; }
+
+        /* Info box - Style React/Tailwind exact */
+        .info-box { background: rgba(251, 191, 36, 0.2); border: 1px solid rgba(146, 64, 14, 0.5); border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+        .info-box-content { display: flex; align-items: flex-start; gap: 12px; }
+        .info-box-icon { width: 32px; height: 32px; background: rgba(146, 64, 14, 0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .info-box-icon svg { width: 20px; height: 20px; color: #fbbf24; }
+        .info-box h4 { color: #fcd34d; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .info-box p { color: #fbbf24; font-size: 14px; line-height: 1.5; }
+
+        .contact-box { text-align: center; color: var(--text-gray); font-size: 14px; }
+        .contact-box a { color: var(--primary-orange); }
+
+        @media (max-width: 500px) { .steps-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="https://webprime-espana.es" class="logo">
+                <img src="../logo-wp.png" alt="WebPrime Logo">
+            </a>
+            <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="https://webprime-espana.es#offres">Nuestros Planes</a></li>
+                    <li><a href="https://webprime-espana.es#creation-site">Creación Web</a></li>
+                    <li><a href="https://webprime-espana.es#application">Aplicación Móvil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="offer-detail-page">
+        <div class="container" style="max-width: 700px;">
+            <a href="https://webprime-espana.es#offres" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                Volver a los planes
+            </a>
+
+            <div class="offer-header-detail">
+                <h1>Pack Primera Página Google</h1>
+                <p class="description">Web 100% código con máxima visibilidad garantizada</p>
+                <div class="price">174€<span>/mes</span></div>
+                <p class="note">Sin compromiso - Puedes cancelar en cualquier momento</p>
+                <a href="https://daelia-digital.fr/formulaire-de-reservation/" class="btn-cta">Contratar ahora</a>
+            </div>
+
+            <div class="features-card">
+                <h2>Qué incluye</h2>
+                <ul class="features-list">
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Creación de página web 100% código (no WordPress)</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Páginas ilimitadas</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Dominio incluido</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Alojamiento premium incluido</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Posicionamiento SEO: optimización + mantenimiento regular</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Modificaciones ilimitadas (textos, imágenes, contenidos)</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Creación de logo profesional</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Formulario de contacto</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Gestión de ficha Google My Business</li>
+                    <li><span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>Atención al cliente 24h/24</li>
+                </ul>
+            </div>
+
+            <div class="how-it-works">
+                <h3>¿Cómo funciona?</h3>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h4>Selección</h4>
+                            <p>Elige el pack adaptado a tu actividad</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h4>Pago</h4>
+                            <p>Valida tu proyecto y reserva tu plaza</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h4>Formulario</h4>
+                            <p>Rellena tu información esencial después del pago</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h4>Llamada en 1h</h4>
+                            <p>Te llamamos para finalizar los detalles</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div>
+                            <h4>Creación</h4>
+                            <p>Nuestro equipo diseña tu web profesional</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">6</div>
+                        <div>
+                            <h4>SEO</h4>
+                            <p>Optimización para posicionar en 1ª página de Google</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-content">
+                    <div class="info-box-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    </div>
+                    <div>
+                        <h4>Información importante</h4>
+                        <p>En el marco de esta fórmula, la web sigue siendo propiedad de WebPrime. En caso de cancelación de la suscripción, solo conservas tu nombre de dominio. Esta fórmula te garantiza una web siempre actualizada y optimizada para los motores de búsqueda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="contact-box">¿Tienes preguntas? <a href="mailto:contact@webprime-espana.es">Contáctanos</a></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; WebPrime 2026 - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const nav = document.getElementById('nav');
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
