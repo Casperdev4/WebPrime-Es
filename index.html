@@ -88,21 +88,21 @@
     </header>
 
     <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-lines"></div>
+        <canvas id="particles"></canvas>
         <div class="container">
-            <p class="hero-welcome">Bienvenido a WebPrime Valencia</p>
+            <p class="hero-welcome"><span class="typing-text"></span></p>
             <h1>Diseñamos <span class="highlight">páginas web</span> y <span class="highlight">aplicaciones móviles</span> de alta gama</h1>
             <p class="hero-subtitle">pensadas para el rendimiento, la visibilidad y el crecimiento sostenible de tu negocio en Valencia.</p>
-            <div class="hero-alert">
-                <span class="alert-icon">🚨</span>
-                <p>Posicionamos webs en <strong>primera página de Google</strong></p>
-            </div>
-            <p class="hero-seo-text">Gracias a una estrategia SEO dominada y un trabajo preciso en cada proyecto, nuestras webs alcanzan posiciones estratégicas en los resultados de búsqueda.</p>
+            <p class="hero-highlight-text">Posicionamos webs en <strong>primera página de Google</strong></p>
+            <p class="hero-seo-text">Gracias a una estrategia SEO dominada y un trabajo preciso en cada proyecto, nuestras webs alcanzan posiciones estratégicas, <a href="https://daelia-digital.fr/premiere-page-google/" target="_blank">prueba aquí</a></p>
         </div>
     </section>
 
     <section class="offers-section" id="ofertas">
         <div class="container">
-            <h2 class="section-title">Nuestros <span class="highlight">Planes</span></h2>
+            <h2 class="section-title typing-title" data-text="Nuestros |Planes| de Páginas Web"></h2>
             <p class="section-subtitle">Elige la solución adaptada a tu proyecto</p>
 
             <div class="offers-grid">
@@ -194,7 +194,7 @@
 
     <section class="process-section" id="creacion-web">
         <div class="container">
-            <h2 class="section-title">Para una <span class="highlight">página web</span> ¿cómo funciona?</h2>
+            <h2 class="section-title typing-title" data-text="Para una |página web| ¿cómo funciona?"></h2>
 
             <div class="steps-container">
                 <div class="step">
@@ -301,7 +301,7 @@
 
     <section class="warning-section" id="advertencia">
         <div class="container">
-            <h2 class="section-title"><span class="highlight">Cuidado</span> con las aplicaciones No-Code</h2>
+            <h2 class="section-title typing-title" data-text="|Cuidado| con las aplicaciones No-Code"></h2>
             <p class="section-subtitle">Por qué solo ofrecemos desarrollo 100% codificado</p>
 
             <div class="warning-grid">
@@ -382,6 +382,47 @@
         </div>
     </section>
 
+    <!-- Bouton roue de la fortune -->
+    <button id="wheelTrigger" class="wheel-trigger">🎁 ¡Gira y gana!</button>
+
+    <!-- Modal roue de la fortune -->
+    <div id="wheelModal" class="wheel-modal">
+        <div class="wheel-modal-content">
+            <button id="wheelClose" class="wheel-close">&times;</button>
+            <h2>🎉 ¡Prueba tu suerte!</h2>
+            <p>Gira la rueda y gana un descuento exclusivo</p>
+
+            <div id="wheelContainer" class="wheel-container">
+                <div class="wheel-pointer"></div>
+                <canvas id="wheelCanvas" width="300" height="300"></canvas>
+                <button id="spinBtn" class="spin-btn">GIRAR</button>
+            </div>
+
+            <form id="wheelForm" class="wheel-form" style="display: none;">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_subject" value="🎁 Nuevo premio Rueda de la Fortuna - WebPrime España">
+                <input type="hidden" id="prizeInput" name="Premio" value="">
+                <input type="hidden" id="customPriceInput" name="Precio propuesto" value="">
+                <p id="prizeText" class="prize-text"></p>
+                <p class="prize-note"></p>
+                <div id="customPriceField" style="display: none; margin-bottom: 15px;">
+                    <label for="customPrice" style="display: block; margin-bottom: 5px; font-weight: 500;">Tu precio propuesto (€/mes):</label>
+                    <input type="number" id="customPrice" name="customPrice" min="1" placeholder="Ej: 100" style="width: 100%; padding: 10px; border: 2px solid #FF6600; border-radius: 8px; font-size: 16px;">
+                </div>
+                <input type="email" name="email" placeholder="Tu email" required>
+                <button type="submit" class="btn btn-primary">Recibir mi código</button>
+            </form>
+
+            <div id="wheelSuccess" class="wheel-success" style="display: none;">
+                <h3>🎉 ¡Felicidades!</h3>
+                <p>Tu código de descuento ha sido enviado a tu email.</p>
+                <button id="closeSuccess" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -432,25 +473,24 @@
     </footer>
 
     <script>
-        // Menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menuToggle');
             const nav = document.getElementById('nav');
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', function () {
                 menuToggle.classList.toggle('active');
                 nav.classList.toggle('active');
             });
+
             const navLinks = nav.querySelectorAll('a');
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Ne pas fermer si c'est le lien du dropdown parent
+                link.addEventListener('click', function () {
                     if (!this.parentElement.classList.contains('has-dropdown')) {
                         menuToggle.classList.remove('active');
                         nav.classList.remove('active');
                     }
                 });
             });
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
                     menuToggle.classList.remove('active');
                     nav.classList.remove('active');
@@ -465,6 +505,284 @@
                         this.parentElement.classList.toggle('open');
                     }
                 });
+            });
+
+            // Particules flottantes
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                const hero = document.querySelector('.hero');
+                canvas.width = hero.offsetWidth;
+                canvas.height = hero.offsetHeight;
+            }
+
+            function createParticles() {
+                particles = [];
+                const numParticles = 50;
+                for (let i = 0; i < numParticles; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        radius: Math.random() * 2 + 1,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5,
+                        opacity: Math.random() * 0.5 + 0.2
+                    });
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    if (p.x < 0) p.x = canvas.width;
+                    if (p.x > canvas.width) p.x = 0;
+                    if (p.y < 0) p.y = canvas.height;
+                    if (p.y > canvas.height) p.y = 0;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 102, 0, ${p.opacity})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+
+            resizeCanvas();
+            createParticles();
+            animateParticles();
+            window.addEventListener('resize', () => { resizeCanvas(); createParticles(); });
+
+            // Effet typing
+            const typingText = document.querySelector('.typing-text');
+            const text = 'Bienvenido a WebPrime';
+            let index = 0;
+            function typeWriter() {
+                if (index < text.length) {
+                    typingText.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 80);
+                }
+            }
+            setTimeout(typeWriter, 400);
+
+            // Effet typing sur les titres
+            const typingTitles = document.querySelectorAll('.typing-title');
+            function typeTitle(element) {
+                const fullText = element.dataset.text;
+                let html = '';
+                let i = 0;
+                let inHighlight = false;
+                function typeChar() {
+                    if (i < fullText.length) {
+                        const char = fullText[i];
+                        if (char === '|') {
+                            if (!inHighlight) { html += '<span class="highlight">'; inHighlight = true; }
+                            else { html += '</span>'; inHighlight = false; }
+                        } else { html += char; }
+                        element.innerHTML = html + (inHighlight ? '</span>' : '');
+                        i++;
+                        setTimeout(typeChar, 50);
+                    }
+                }
+                typeChar();
+            }
+            const titleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('typed')) {
+                        entry.target.classList.add('typed');
+                        typeTitle(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            typingTitles.forEach(title => { titleObserver.observe(title); });
+
+            // Roue de la fortune
+            const wheelTrigger = document.getElementById('wheelTrigger');
+            const wheelModal = document.getElementById('wheelModal');
+            const wheelClose = document.getElementById('wheelClose');
+            const wheelContainer = document.getElementById('wheelContainer');
+            const wheelForm = document.getElementById('wheelForm');
+            const wheelSuccess = document.getElementById('wheelSuccess');
+            const spinBtn = document.getElementById('spinBtn');
+            const prizeText = document.getElementById('prizeText');
+            const prizeForm = document.getElementById('prizeForm');
+            const closeSuccess = document.getElementById('closeSuccess');
+            const wheelCanvas = document.getElementById('wheelCanvas');
+            const wheelCtx = wheelCanvas.getContext('2d');
+
+            const segments = [
+                { text: '-50€/mes', color: '#FF6600' },
+                { text: '-10€/mes', color: '#1a1a1a' },
+                { text: 'GRAN PREMIO', color: '#FFD700', glow: true },
+                { text: '-20€/mes', color: '#e09a40' },
+                { text: '-50€/mes', color: '#FF6600' },
+                { text: '-10€/mes', color: '#1a1a1a' },
+                { text: 'GRAN PREMIO', color: '#FFD700', glow: true },
+                { text: '-20€/mes', color: '#e09a40' }
+            ];
+
+            const weights = { '-10€/mes': 35, '-20€/mes': 35, '-50€/mes': 15, 'GRAN PREMIO': 15 };
+
+            function getWeightedPrize() {
+                const rand = Math.random() * 100;
+                let cumulative = 0;
+                for (const [prize, weight] of Object.entries(weights)) {
+                    cumulative += weight;
+                    if (rand <= cumulative) return prize;
+                }
+                return '-10€/mes';
+            }
+
+            let currentRotation = 0;
+            const segmentAngle = 360 / segments.length;
+
+            function drawWheel() {
+                const centerX = wheelCanvas.width / 2;
+                const centerY = wheelCanvas.height / 2;
+                const radius = Math.min(centerX, centerY) - 5;
+
+                wheelCtx.clearRect(0, 0, wheelCanvas.width, wheelCanvas.height);
+
+                segments.forEach((segment, i) => {
+                    const startAngle = (i * segmentAngle - 90 + currentRotation) * Math.PI / 180;
+                    const endAngle = ((i + 1) * segmentAngle - 90 + currentRotation) * Math.PI / 180;
+
+                    wheelCtx.beginPath();
+                    wheelCtx.moveTo(centerX, centerY);
+                    wheelCtx.arc(centerX, centerY, radius, startAngle, endAngle);
+                    wheelCtx.closePath();
+
+                    if (segment.glow) {
+                        const gradient = wheelCtx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+                        gradient.addColorStop(0, '#FFF8DC');
+                        gradient.addColorStop(0.5, '#FFD700');
+                        gradient.addColorStop(1, '#DAA520');
+                        wheelCtx.fillStyle = gradient;
+                    } else {
+                        wheelCtx.fillStyle = segment.color;
+                    }
+                    wheelCtx.fill();
+
+                    wheelCtx.strokeStyle = '#fff';
+                    wheelCtx.lineWidth = 2;
+                    wheelCtx.stroke();
+
+                    wheelCtx.save();
+                    wheelCtx.translate(centerX, centerY);
+                    const textAngle = (i * segmentAngle + segmentAngle / 2 - 90 + currentRotation) * Math.PI / 180;
+                    wheelCtx.rotate(textAngle);
+                    wheelCtx.textAlign = 'right';
+                    wheelCtx.fillStyle = segment.glow ? '#8B4513' : '#fff';
+                    wheelCtx.font = 'bold 13px Poppins';
+                    wheelCtx.fillText(segment.text, radius - 15, 5);
+                    wheelCtx.restore();
+                });
+
+                wheelCtx.beginPath();
+                wheelCtx.arc(centerX, centerY, 25, 0, Math.PI * 2);
+                wheelCtx.fillStyle = '#FF6600';
+                wheelCtx.fill();
+                wheelCtx.strokeStyle = '#fff';
+                wheelCtx.lineWidth = 3;
+                wheelCtx.stroke();
+            }
+
+            drawWheel();
+
+            function spinWheel() {
+                const targetPrize = getWeightedPrize();
+                const targetIndices = segments.map((s, i) => s.text === targetPrize ? i : -1).filter(i => i !== -1);
+                const targetIndex = targetIndices[Math.floor(Math.random() * targetIndices.length)];
+                const randomOffset = (Math.random() * 0.3 + 0.35);
+                const targetAngle = targetIndex * segmentAngle + segmentAngle * randomOffset;
+                const spins = 5 + Math.floor(Math.random() * 3);
+
+                currentRotation = 0;
+                const totalRotation = spins * 360 + (360 - targetAngle);
+                const duration = 5000;
+                const startTime = Date.now();
+                spinBtn.disabled = true;
+
+                function animate() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeOut = 1 - Math.pow(1 - progress, 3);
+                    currentRotation = easeOut * totalRotation;
+                    drawWheel();
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        const normalizedRotation = currentRotation % 360;
+                        const winningIndex = Math.floor((segments.length - normalizedRotation / segmentAngle) + segments.length) % segments.length;
+                        const prize = segments[winningIndex].text;
+                        setTimeout(() => { showPrize(prize); }, 1000);
+                    }
+                }
+                animate();
+            }
+
+            function showPrize(prize) {
+                wheelContainer.style.display = 'none';
+                wheelForm.style.display = 'block';
+                prizeText.textContent = '¡Has ganado: ' + prize + '!';
+                document.getElementById('prizeInput').value = prize;
+
+                const prizeNote = wheelForm.querySelector('.prize-note');
+                const customPriceField = document.getElementById('customPriceField');
+
+                if (prize === 'GRAN PREMIO') {
+                    prizeNote.innerHTML = '<strong>¡GRAN PREMIO!</strong><br>¡Web corporativa o tienda online GRATIS!<br>Con seguimiento mensual según el precio que propongas.';
+                    customPriceField.style.display = 'block';
+                } else {
+                    customPriceField.style.display = 'none';
+                    let finalPrice = '';
+                    if (prize === '-10€/mes') finalPrice = '164€/mes';
+                    else if (prize === '-20€/mes') finalPrice = '154€/mes';
+                    else if (prize === '-50€/mes') finalPrice = '124€/mes';
+
+                    prizeNote.innerHTML = 'Para el seguimiento mensual, según tu elección:<ul style="text-align:left;"><li>Web corporativa</li><li>Tienda online</li><li>Web de reservas</li></ul>En lugar de 174€/mes → <strong>' + finalPrice + '</strong>';
+                }
+            }
+
+            wheelForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const customPrice = document.getElementById('customPrice').value;
+                if (customPrice) {
+                    document.getElementById('customPriceInput').value = customPrice + '€/mes';
+                }
+                const formData = new FormData(wheelForm);
+                fetch('https://formsubmit.co/ajax/contact@webprime-espana.es', {
+                    method: 'POST',
+                    body: formData
+                }).then(response => response.json()).then(data => {
+                    wheelForm.style.display = 'none';
+                    wheelSuccess.style.display = 'block';
+                    localStorage.setItem('wheelPlayed', 'true');
+                }).catch(error => {
+                    alert('Error al enviar. Por favor, inténtalo de nuevo.');
+                });
+            });
+
+            spinBtn.addEventListener('click', spinWheel);
+
+            wheelTrigger.addEventListener('click', () => {
+                wheelModal.classList.add('active');
+            });
+
+            wheelClose.addEventListener('click', () => {
+                wheelModal.classList.remove('active');
+            });
+
+            closeSuccess.addEventListener('click', () => {
+                wheelModal.classList.remove('active');
+            });
+
+            wheelModal.addEventListener('click', (e) => {
+                if (e.target === wheelModal) wheelModal.classList.remove('active');
             });
         });
     </script>
