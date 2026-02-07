@@ -138,9 +138,9 @@
             </button>
             <nav class="nav" id="nav">
                 <ul>
-                    <li class="has-dropdown">
+                    <li class="nav-dropdown">
                         <a href="#">Sitio Web</a>
-                        <ul class="dropdown">
+                        <ul class="dropdown-menu">
                             <li><a href="ofertas/web-corporativa.html">Vitrina</a></li>
                             <li><a href="ofertas/web-reservas.html">Reservas</a></li>
                             <li><a href="ofertas/tienda-online.html">Tienda Online</a></li>
@@ -148,7 +148,6 @@
                         </ul>
                     </li>
                     <li><a href="https://webprime-espana.es/aplicacion-movil.html">Aplicación</a></li>
-                    <li><a href="https://daelia-digital.fr/premiere-page-google/" target="_blank">1ère Page Google</a></li>
                 </ul>
             </nav>
         </div>
@@ -554,7 +553,7 @@
             const navLinks = nav.querySelectorAll('a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function () {
-                    if (!this.parentElement.classList.contains('has-dropdown')) {
+                    if (!this.parentElement.classList.contains('nav-dropdown')) {
                         menuToggle.classList.remove('active');
                         nav.classList.remove('active');
                     }
@@ -567,12 +566,12 @@
                 }
             });
             // Dropdown toggle mobile
-            const dropdowns = document.querySelectorAll('.has-dropdown > a');
+            const dropdowns = document.querySelectorAll('.nav-dropdown > a');
             dropdowns.forEach(dropdown => {
                 dropdown.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
-                        this.parentElement.classList.toggle('open');
+                        this.parentElement.classList.toggle('active');
                     }
                 });
             });
